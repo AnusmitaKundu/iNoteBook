@@ -1,5 +1,5 @@
 // NoteItem.js
-
+//NoteItems => Notes
 import React, { useContext, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import './NoteItem.css';
@@ -29,6 +29,7 @@ const NoteItem = (props) => {
   };
 
   return (
+    ////////////THIS COMPONENT IS FETCHING AND DISPLAYING  ALL THE NOTES///////////////////
     <div className="shimmer-container">
       <Card className="note-card">
         <Card.Img variant="top" />

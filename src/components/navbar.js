@@ -32,7 +32,8 @@ function OffcanvasExample() {
 
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link as={Link} to="/login" className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 mr-2">LogOut</Nav.Link>
+                <Nav.Link as={Link} to="/home">Home</Nav.Link>
                 <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>  
                  
                   {/* <Nav.Link href="#action2">Link</Nav.Link> */}
@@ -49,6 +50,7 @@ function OffcanvasExample() {
                       Something else here
                     </NavDropdown.Item>
                   </NavDropdown>
+                   
                 </Nav>
                 <Form className="d-flex">
                   <Form.Control
@@ -59,7 +61,9 @@ function OffcanvasExample() {
                   />
                   
                   <Button variant="outline-success">Search</Button>
+                  
                 </Form>
+                
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>

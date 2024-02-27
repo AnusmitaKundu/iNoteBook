@@ -42,7 +42,8 @@ router.post('/signup', [
         };
 
         const authToken = jwt.sign(data, JWT_SECRET);
-        res.json({ authToken });
+        success = true;
+        res.json({ success, authToken }); //add success
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Some error occurred");
@@ -75,6 +76,7 @@ router.post("/login", [
         const passwordCompare = await bcrypt.compare(password, user.password); // To compare password in database with entered password
         if (!passwordCompare) {
             return res.status(401).send("Invalid Password");//if invalid password is entered show error
+            success = false
         }
         //payload
         const data ={
@@ -85,7 +87,8 @@ router.post("/login", [
         }
         //Create JWT token for authentication
         const authToken = jwt.sign(data, JWT_SECRET);
-        res.json({ msg: "Logged in", authToken });
+        success = true;
+        res.json({ msg: "Logged in",success, authToken });
 
 
     }

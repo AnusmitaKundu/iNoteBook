@@ -17,7 +17,7 @@ const NoteState = (props) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVhMjkyZTUzMjIyNmIzMDIxZmNjZmEwIn0sImlhdCI6MTcwNTE1MzI1M30.wmizAlRv9yk902a8ZmfgG8rCh_m4Ore8ZQntAgYO0r0"
+        "auth-token": localStorage.getItem('token')
       },
       
     });
@@ -31,7 +31,7 @@ const NoteState = (props) => {
     console.log("Adding a new note");
     const newnote ={
       "_id": uuidv4(),
-      "user": "659adb813c25d1045d39a865",
+      "user": localStorage.getItem('token'),
       "title":title,
       "description": description,
       "date": Date.now(),
@@ -43,14 +43,14 @@ const NoteState = (props) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVhMjkyZTUzMjIyNmIzMDIxZmNjZmEwIn0sImlhdCI6MTcwNTE1MzI1M30.wmizAlRv9yk902a8ZmfgG8rCh_m4Ore8ZQntAgYO0r0"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({title, description})
     });
 
     const note = await response.json();
-    setNotes(notes.concat(newnote));
-
+    //setNotes(notes.concat(newnote));
+    setNotes([...notes, newnote]);
     console.log("Note added id " + note._id);
   }
   /////////////END OF ADD NOTE/////////////
@@ -62,7 +62,7 @@ const NoteState = (props) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVhMjkyZTUzMjIyNmIzMDIxZmNjZmEwIn0sImlhdCI6MTcwNTE1MzI1M30.wmizAlRv9yk902a8ZmfgG8rCh_m4Ore8ZQntAgYO0r0"
+        "auth-token": localStorage.getItem('token')
       },
      
     });
@@ -80,7 +80,7 @@ const NoteState = (props) => {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjVhMjkyZTUzMjIyNmIzMDIxZmNjZmEwIn0sImlhdCI6MTcwNTE1MzI1M30.wmizAlRv9yk902a8ZmfgG8rCh_m4Ore8ZQntAgYO0r0"
+          "auth-token": localStorage.getItem('token')
         },
         body: JSON.stringify({title, description})
       });
@@ -111,58 +111,3 @@ const NoteState = (props) => {
 
 export default NoteState
 
-
-  // const Notes = [
-
-
-//     {
-//       "_id": "659aeb30073d33e19b0ad989",
-//       "user": "659adb813c25d1045d39a865",
-//       "title": "To-do list for tomorrow",
-//       "description": "Complete full stack development",
-//       "date": "2024-01-07T18:19:28.085Z",
-//       "__v": 0
-//     },
-//     {
-//       "_id": "65a013effff39044d559170b",
-//       "user": "659adb813c25d1045d39a865",
-//       "title": "Movies watchlist",
-//       "description": "Foe, Past Lives, Poor Things, Saltburn",
-//       "date": "2024-01-11T16:14:39.444Z",
-//       "__v": 0
-//     },
-//     {
-//       "_id": "659aeb30073d33e19b0ad989",
-//       "user": "659adb813c25d1045d39a865",
-//       "title": "To-do list for tomorrow",
-//       "description": "Complete full stack development",
-//       "date": "2024-01-07T18:19:28.085Z",
-//       "__v": 0
-//     },
-//     {
-//       "_id": "65a013effff39044d559170b",
-//       "user": "659adb813c25d1045d39a865",
-//       "title": "Movies watchlist",
-//       "description": "Foe, Past Lives, Poor Things, Saltburn",
-//       "date": "2024-01-11T16:14:39.444Z",
-//       "__v": 0
-//     },
-//     {
-//       "_id": "659aeb30073d33e19b0ad989",
-//       "user": "659adb813c25d1045d39a865",
-//       "title": "To-do list for tomorrow",
-//       "description": "Complete full stack development",
-//       "date": "2024-01-07T18:19:28.085Z",
-//       "__v": 0
-//     },
-//     {
-//       "_id": "65a013effff39044d559170b",
-//       "user": "659adb813c25d1045d39a865",
-//       "title": "Movies watchlist",
-//       "description": "Foe, Past Lives, Poor Things, Saltburn",
-//       "date": "2024-01-11T16:14:39.444Z",
-//       "__v": 0
-//     }
-  
-
-//   ]

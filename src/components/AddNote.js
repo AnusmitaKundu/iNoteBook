@@ -10,6 +10,7 @@ import NoteContext from '../contexts/notes/NoteContext';
 function MyVerticallyCenteredModal(props) {
   //const [title, setTitle] = useState('');
   const context = useContext(NoteContext);
+  
   const {addNote} = context;
   const [ notes, setNotes ] = useState({title: "", description: "", tag: ""});
   

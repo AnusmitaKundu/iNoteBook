@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NoteContext from '../contexts/notes/NoteContext';
 import NoteItem from './NoteItem';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
@@ -6,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-const CreateNote = () => {
+const CreateNote = (props) => {
   const context = useContext(NoteContext);
   const { notes, getNotes, addNote } = context;
   const [showNotes, setShowNotes] = useState(false);
@@ -16,11 +17,17 @@ const CreateNote = () => {
   const toggleNotes = () => {
     setShowNotes(!showNotes);
   };
-
+  let history = useNavigate();
   useEffect(() => {
-    getNotes();
+    if(localStorage.getItem('token')){
+      getNotes();
+    }
+    else{
+      history('/login')
+    }
   }, [getNotes]);
 
+  console.log("Notes:", notes);
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -32,10 +39,14 @@ const CreateNote = () => {
     setShowModal(false);
   };
 
-  const updateNote = (note) => {
-    console.log('Update note:', note);
-    // You may open a modal or perform any other action based on your requirement
-  };
+  // const updateNote = (note) => {
+  //   console.log('Update note:', note);
+  //   // You may open a modal or perform any other action based on your requirement
+  // };
+
+  // const shownotes = ()=>{
+  //   console.log(notes)
+  // }
 
   return (
     <>
@@ -82,17 +93,20 @@ const CreateNote = () => {
         </div>
 
         {showNotes && (
+         
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+           
             {notes.map((note, index) => (
               <div key={index} className="col mb-4">
-                <NoteItem key={note._id} updateNote={() => updateNote(note)} note={note} />
+                <NoteItem key={note._id} updateNote={() => getNotes()} note={note} />
               </div>
             ))}
+            
           </div>
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
 export default CreateNote;
