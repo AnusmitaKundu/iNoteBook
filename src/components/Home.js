@@ -34,8 +34,6 @@ const Home = () => {
         <button className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95 mr-2">
           Make e new Note
         </button>
-        {/* <Link className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95 mr-2" to="/login" role="button">Login</Link>
-        <Link className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95 mr-2" to="/signup" role="button">Signup</Link> */}
         </Link>
         
       </div>
