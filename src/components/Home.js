@@ -25,7 +25,7 @@ const Home = () => {
           Better every day
         </span>
         <h3 className="text-4xl md:text-6xl font-semibold">
-          Let's change it up a bit
+          Let's plan your notes
         </h3>
         <p className="text-base md:text-lg text-slate-700 my-4 md:my-6">
         From quick to-do lists to detailed project plans, our sleek and user-friendly interface empowers you to capture, organize, and share your notes seamlessly. Elevate your note-taking experience and turn inspiration into action with iNoteBook. Your ideas, beautifully crafted.
