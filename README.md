@@ -2,7 +2,7 @@
 ![Screenshot (483)](https://github.com/AnusmitaKundu/iNoteBook/assets/129651371/f50ed1ac-58e2-4268-9b8b-3f63e1e0da3c)
 ![Screenshot (484)](https://github.com/AnusmitaKundu/iNoteBook/assets/129651371/61089ac4-0429-491f-b87a-fa025e926774)
 ![Screenshot (481)](https://github.com/AnusmitaKundu/iNoteBook/assets/129651371/6d26d525-bfea-4427-b971-075bb84733bf)
-![Screenshot (479)](https://github.com/AnusmitaKundu/iNoteBook/assets/129651371/ef1ef900-0907-4706-af60-4edce05f0793)
+
 
 # Getting Started with Create React App
 
